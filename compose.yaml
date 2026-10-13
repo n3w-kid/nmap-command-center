@@ -1,0 +1,26 @@
+services:
+  web:
+    build: ./web
+    ports:
+      - "127.0.0.1:3000:3000"
+    environment:
+      SCANNER_URL: http://scanner:8000
+    depends_on:
+      - scanner
+    restart: unless-stopped
+  scanner:
+    build: ./worker
+    cap_add:
+      - NET_RAW
+    environment:
+      DATA_DIR: /data
+      ADMIN_TOKEN: ${ADMIN_TOKEN:-}
+      LAB_MODE_ENABLED: ${LAB_MODE_ENABLED:-false}
+      LAB_ALLOWED_IPS: ${LAB_ALLOWED_IPS:-}
+      ALLOWED_CIDRS: ${ALLOWED_CIDRS:-127.0.0.0/8,::1/128}
+      ALLOWED_HOSTNAMES: ${ALLOWED_HOSTNAMES:-}
+      MAX_TARGETS: ${MAX_TARGETS:-256}
+      MAX_DURATION: ${MAX_DURATION:-1800}
+    volumes:
+      - ./data:/data
+    restart: unless-stopped
