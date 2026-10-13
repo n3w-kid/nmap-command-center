@@ -51,8 +51,4 @@ To enable lab-only NSE checks, set `LAB_MODE_ENABLED=true` and list **exact** ad
 In `/new`, select the approved script, toggle Private lab mode, enter the administrator token, confirm target authorization and the additional lab risk acknowledgement, and verify the live preview. The backend enforces one pinned, exact private IP that appears in `LAB_ALLOWED_IPS` for these categories, at most three lab-category NSE scripts per step, Nmap script timeout of 120 seconds, and up to three sequential commands per session. The target allowlist alone **does not isolate** the network: configure your hypervisor/firewall so the scanner reaches only intentionally disposable lab VMs, and expect a chance of data loss or service interruption.
 
 Scripts in the `external` and `broadcast` categories and `targets-*` / `broadcast-*` scripts cannot be run from the app, because they may send traffic outside the authorized single-target scope. `version` scripts are invoked through `-sV`; NSE libraries are not directly executable. Custom `.nse`/`.lua` uploads remain quarantined and are never executed. Web app is bound to `127.0.0.1`; do not publicly expose it without authentication and network isolation.
-# nmap-command-center-
-# nmap-command-center
-# nmap-command-center
-# nmap-command-center
-# nmap-command-center
+
