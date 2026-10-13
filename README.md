@@ -53,3 +53,4 @@ In `/new`, select the approved script, toggle Private lab mode, enter the admini
 Scripts in the `external` and `broadcast` categories and `targets-*` / `broadcast-*` scripts cannot be run from the app, because they may send traffic outside the authorized single-target scope. `version` scripts are invoked through `-sV`; NSE libraries are not directly executable. Custom `.nse`/`.lua` uploads remain quarantined and are never executed. Web app is bound to `127.0.0.1`; do not publicly expose it without authentication and network isolation.
 # nmap-command-center-
 # nmap-command-center
+# nmap-command-center
